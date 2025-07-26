@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Space</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="nav-logo">
+                <img src="images/BinahIcon.png" alt="Home" class="logo">
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-bg">
+                <img src="images/The_Library_-_Floor_of_Philosophy.png" alt="Library" class="hero-image">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Welcome</h1>
+                    <p class="hero-subtitle">Personal space for projects and thoughts</p>
+                </div>
+                <div class="hero-avatar">
+                    <img src="images/profile.png" alt="Profile" class="avatar">
+                </div>
+            </div>
+            <div class="scroll-hint">
+                <span>Scroll to explore</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>21-year-old Developer at SAP Software Solutions, specializing in Middleware NetWeaver Adapters.</p>
+                        <p>I bridge systems and solve integration challenges by day, and dive into games and personal projects by night.</p>
+                        <p>Passionate about clean code, efficient workflows, and games that tell compelling stories.</p>
+                    </div>
+                    <div class="about-interests">
+                        <h3>Currently into</h3>
+                        <div class="interests">
+                            <span class="interest">SAP NetWeaver</span>
+                            <span class="interest">Middleware Solutions</span>
+                            <span class="interest">Gaming</span>
+                            <span class="interest">Web Development</span>
+                            <span class="interest">System Integration</span>
+                            <span class="interest">Music</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <img src="images/IndexProselytesIcon.png" alt="Daily Prescripts">
+                        </div>
+                        <div class="project-info">
+                            <h3>Daily Prescripts</h3>
+                            <p>Daily motivation tracker with streak system</p>
+                            <div class="project-links">
+                                <a href="https://prescripts.netlify.app/" target="_blank" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Live Site
+                                </a>
+                                <a href="https://github.com/KiwiKit2" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                    Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get in touch</h2>
+                <div class="contact-grid">
+                    <a href="https://github.com/KiwiKit2" target="_blank" class="contact-card">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://steamcommunity.com/id/SashkoKit/" target="_blank" class="contact-card">
+                        <i class="fab fa-steam"></i>
+                        <span>Steam</span>
+                    </a>
+                    <a href="mailto:your-email@example.com" class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
