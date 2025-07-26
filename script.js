@@ -231,6 +231,140 @@ function typewriterEffect() {
     setTimeout(type, 1000);
 }
 
+// Easter Egg: Binah Well Meme on Profile Picture Rapid Clicks
+function setupProfileEasterEgg() {
+    const avatar = document.querySelector('.avatar');
+    if (!avatar) return;
+    
+    let clickCount = 0;
+    let clickTimer = null;
+    const requiredClicks = 5;
+    const timeWindow = 2000; // 2 seconds
+    
+    avatar.addEventListener('click', function() {
+        clickCount++;
+        
+        // Clear existing timer
+        if (clickTimer) {
+            clearTimeout(clickTimer);
+        }
+        
+        // Check if we've reached the required clicks
+        if (clickCount >= requiredClicks) {
+            showBinahWellMeme();
+            clickCount = 0;
+            return;
+        }
+        
+        // Reset counter after time window
+        clickTimer = setTimeout(() => {
+            clickCount = 0;
+        }, timeWindow);
+    });
+}
+
+function showBinahWellMeme() {
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: fadeIn 0.3s ease;
+    `;
+    
+    // Create meme container
+    const memeContainer = document.createElement('div');
+    memeContainer.style.cssText = `
+        text-align: center;
+        animation: bounceIn 0.5s ease;
+    `;
+    
+    // Create meme image
+    const memeImage = document.createElement('img');
+    memeImage.src = 'images/binah_well.jpg';
+    memeImage.alt = 'Binah Well Meme';
+    memeImage.style.cssText = `
+        max-width: 80vw;
+        max-height: 80vh;
+        border-radius: 12px;
+        border: 3px solid var(--accent);
+        box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+    `;
+    
+    // Create text
+    const memeText = document.createElement('p');
+    memeText.textContent = 'Well...';
+    memeText.style.cssText = `
+        color: var(--accent);
+        font-size: 2rem;
+        font-weight: 600;
+        margin-top: 1rem;
+        text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    `;
+    
+    // Create close instruction
+    const closeText = document.createElement('p');
+    closeText.textContent = 'Click anywhere to close';
+    closeText.style.cssText = `
+        color: var(--text-secondary);
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        opacity: 0.7;
+    `;
+    
+    // Assemble elements
+    memeContainer.appendChild(memeImage);
+    memeContainer.appendChild(memeText);
+    memeContainer.appendChild(closeText);
+    overlay.appendChild(memeContainer);
+    
+    // Add animations
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3) rotate(-3deg); opacity: 0; }
+            50% { transform: scale(1.05) rotate(1deg); }
+            70% { transform: scale(0.95) rotate(-1deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Add to page
+    document.body.appendChild(overlay);
+    
+    // Close on click
+    overlay.addEventListener('click', () => {
+        overlay.style.animation = 'fadeOut 0.3s ease';
+        setTimeout(() => {
+            document.body.removeChild(overlay);
+            document.head.removeChild(style);
+        }, 300);
+    });
+    
+    // Add fadeOut animation
+    const fadeOutStyle = document.createElement('style');
+    fadeOutStyle.textContent = `
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    `;
+    document.head.appendChild(fadeOutStyle);
+}
+
 // Initialize all animations and effects
 document.addEventListener('DOMContentLoaded', function() {
     // Add smooth entrance animation to main sections
@@ -264,6 +398,7 @@ document.addEventListener('DOMContentLoaded', function() {
     addHoverEffects();
     createFloatingElements();
     typewriterEffect();
+    setupProfileEasterEgg(); // Add the easter egg!
 });
 
 // Mobile responsive enhancements
